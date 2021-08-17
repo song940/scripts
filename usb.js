@@ -1,5 +1,7 @@
 // https://developers.google.com/web/updates/2016/03/access-usb-devices-on-the-web
 
+import EventEmitter from "./events.js";
+
 export const listDevices = () => {
   return navigator.usb.getDevices();
 }
@@ -14,3 +16,9 @@ export const connect = async (vendorId, productId) => {
   await device.open();
   return device;
 };
+
+export class USB extends EventEmitter {
+  open(){
+
+  }
+}

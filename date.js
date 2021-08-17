@@ -31,7 +31,7 @@ export const format = (pattern, date = new Date()) => {
   })[name] || `{${name}}`);
 };
 
-export const parse = () => {
-  const date = new Date;
+export const parse = str => {
+  const date = new Date(str);
   return date;
 };

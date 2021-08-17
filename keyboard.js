@@ -1,9 +1,7 @@
 import { addEventListener } from './dom.js';
 
-export const KEY_CODES = {
-  ENTER: 13,
-};
-
-export const keydown = () => {
-  
+export const onKeydown = (key, fn) => {
+  return addEventListener(document, 'keydown', (e) => {
+    if (e.key === key) fn();
+  });
 };
