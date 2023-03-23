@@ -4,20 +4,3 @@
 @import url(https://lsong.org/stylesheets/panel.css);
 @import url(https://lsong.org/stylesheets/button.css);
 @import url(https://lsong.org/stylesheets/select.css);
-
-select {
-  all: unset;
-  display: block;
-  font-size: 1em;
-  padding: .4rem .45rem;
-  /* appearance */
-  outline: 0;
-  opacity: .9;
-  cursor: pointer;
-  appearance: none;
-  /* border */
-  border-width: 1px;
-  border-style: solid;
-  border-radius: var(--radius-size);
-  border-color: var(--border-color, #efefef);
-}
