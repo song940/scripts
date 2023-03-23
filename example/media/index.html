@@ -6,22 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Example</title>
   <link rel="stylesheet" href="./index.css">
-  <script type="module" src="../../components/audio-player.js"></script>
   <script type="module" src="./index.js"></script>
 </head>
 
 <body>
 
   <h1>Media API Example</h1>
-
-
   <div class="panel">
-    <h3 class="panel-header">Audio</h3>
-    <div class="panel-body">
-      <audio-player></audio-player>
-    </div>
+    <h3 class="panel-header">Devices</h3>
+    <form class="panel-body">
+      <div class="form-field">
+        <label for="audioinputs">Audio Input:</label>
+        <select id="audioinputs"></select>
+      </div>
+      <div class="form-field">
+        <label for="audiooutputs">Audio Output:</label>
+        <select id="audiooutputs"></select>
+      </div>
+      <div class="form-field">
+        <label for="videoinputs">Video Output:</label>
+        <select id="videoinputs"></select>
+      </div>
+    </form>
     <div class="panel-footer">
-      <button id="microphone" class="button">microphone</button>
     </div>
   </div>
 

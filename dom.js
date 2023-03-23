@@ -34,21 +34,6 @@ export const ready = (fn, unload) => {
   return document.addEventListener('DOMContentLoaded', fn);
 };
 
-export const visibilityChange = fn => {
-  var hidden, visibilityChange;
-  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
-    hidden = "hidden";
-    visibilityChange = "visibilitychange";
-  } else if (typeof document.msHidden !== "undefined") {
-    hidden = "msHidden";
-    visibilityChange = "msvisibilitychange";
-  } else if (typeof document.webkitHidden !== "undefined") {
-    hidden = "webkitHidden";
-    visibilityChange = "webkitvisibilitychange";
-  }
-  return document.addEventListener(visibilityChange, e => fn && fn(document[hidden], e))
-};
-
 export const createTreeWalker = (root, ...options) => {
   return document.createTreeWalker(root, ...options)
 };
@@ -113,6 +98,13 @@ export const setPositionWithDelta = (dom, delta) => {
   });
 };
 
+export const setPositionFromEvent = e => {
+  return setPositionWithDelta(e.target, {
+    x: e.movementX,
+    y: e.movementY,
+  });
+};
+
 export const getPositionFromEvent = e => {
   const a = {
     x: e.offsetX,
@@ -127,13 +119,6 @@ export const getPositionFromEvent = e => {
     y: e.scrollY,
   };
   return { a, b, c };
-};
-
-export const setPositionFromEvent = e => {
-  return setPositionWithDelta(e.target, {
-    x: e.movementX,
-    y: e.movementY,
-  });
 };
 
 export const attachNode = (where, what) => {

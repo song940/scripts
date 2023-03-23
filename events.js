@@ -33,8 +33,7 @@ export class EventEmitter {
   }
 }
 
-const events = new EventEmitter();
-
+export const events = new EventEmitter();
 export const on = events.addListener.bind(events);
 export const off = events.removeListener.bind(events);
 export default EventEmitter
@@ -71,3 +70,18 @@ export function debounce(func, delay) {
     }, delay);
   }
 }
+
+export const visibilityChange = fn => {
+  var hidden, visibilityChange;
+  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+    hidden = "hidden";
+    visibilityChange = "visibilitychange";
+  } else if (typeof document.msHidden !== "undefined") {
+    hidden = "msHidden";
+    visibilityChange = "msvisibilitychange";
+  } else if (typeof document.webkitHidden !== "undefined") {
+    hidden = "webkitHidden";
+    visibilityChange = "webkitvisibilitychange";
+  }
+  return document.addEventListener(visibilityChange, e => fn && fn(document[hidden], e))
+};

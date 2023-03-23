@@ -27,3 +27,5 @@ export class SuperWebSocket extends EventEmitter {
     this.ws.close(code, reason);
   }
 }
+
+export const connect = (url, opts) => new SuperWebSocket(url, opts);

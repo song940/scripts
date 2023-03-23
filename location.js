@@ -1,7 +1,6 @@
 
 const { geolocation } = navigator;
 
-
 /**
  * Geolocation.getCurrentPosition()
  * @docs https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition

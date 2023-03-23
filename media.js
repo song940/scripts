@@ -1,4 +1,8 @@
 
+const { mediaDevices } = navigator;
+
+export const listDevices = () => mediaDevices.enumerateDevices();
+
 export const getUserMedia = constraints => {
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
     return navigator.mediaDevices.getUserMedia(constraints);
@@ -64,3 +68,5 @@ export const setPositionState = state => {
   if (!("mediaSession" in navigator)) return;
   return navigator.mediaSession.setPositionState(state);
 };
+
+

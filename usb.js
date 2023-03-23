@@ -1,14 +1,16 @@
-// https://developers.google.com/web/updates/2016/03/access-usb-devices-on-the-web
-
 import EventEmitter from "./events.js";
 
+// https://developers.google.com/web/updates/2016/03/access-usb-devices-on-the-web
+
+const { usb } = navigator;
+
 export const listDevices = () => {
-  return navigator.usb.getDevices();
+  return usb.getDevices();
 }
 
 export const requestDevice = (filters = []) => {
   if (!Array.isArray(filters)) filters = [filters];
-  return navigator.usb.requestDevice({ filters });
+  return usb.requestDevice({ filters });
 };
 
 export const connect = async (vendorId, productId) => {
@@ -18,7 +20,7 @@ export const connect = async (vendorId, productId) => {
 };
 
 export class USB extends EventEmitter {
-  open(){
+  open() {
 
   }
 }
