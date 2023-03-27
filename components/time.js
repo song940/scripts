@@ -1,10 +1,11 @@
 import { define, wrap } from '../webcomponent.js';
-import { format, parse } from '../date.js';
+import { format, parse } from '../time.js';
+
+const defaultFormat = `yyyy-MM-dd HH:mm:ss`;
 
 define('x-time', class extends wrap('time') {
   mount() {
-    const t = parse(this.textContent);
-    const f = this.getAttribute('format');
-    this.textContent = format(f, t);
+    const f = this.getAttribute('format') || defaultFormat;
+    this.textContent = format(f);
   }
 }, { extends: 'time' });
