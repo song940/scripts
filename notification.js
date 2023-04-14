@@ -7,6 +7,7 @@ class AccessDeniedError extends Error {
 }
 
 export const request = async () => {
+  if (!('Notification' in window)) return;
   const { permission, requestPermission } = window.Notification;
   switch (permission) {
     case 'default':
