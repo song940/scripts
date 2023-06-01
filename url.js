@@ -12,8 +12,5 @@ export const parse = url => {
     path: 7,
     querystring: 8,
     hash: 9,
-  }).reduce((out, [k, v]) => {
-    out[k] = match[v] || '';
-    return out;
-  }, {});
+  }).reduce((out, [k, v]) => (out[k] = match[v] || '', out), {});
 }
