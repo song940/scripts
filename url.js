@@ -1,8 +1,8 @@
 
 
-export const parse = url => {
-  const pattern = /^((\w+):\/\/)?((.+)?@)?([^\/\?:]+):?(\d+)?(\/?[^\?#]+)?\??([^#]+)?#?(\w*)/;
-  const match = pattern.exec(url);
+export function parse(url) {
+  const pattern = /^((\w+):\/\/)?((.+)?@)?([^\/\?:]+):?(\d+)?(\/?[^\?#]+)?\??([^#]+)?#?(.*)/;
+  const match = pattern.exec(decodeURIComponent(url));
   return Object.entries({
     url: 0,
     protocol: 2,
