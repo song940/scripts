@@ -12,4 +12,5 @@ export {
   createContext,
   useLayout,
   useLayout as useLayoutEffect,
+  useLocalStorageState,
 } from './hook.js';

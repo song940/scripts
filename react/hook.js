@@ -90,3 +90,15 @@ export const useContext = (contextType) => {
 export const isChanged = (a, b) => {
   return !a || a.length !== b.length || b.some((arg, index) => !Object.is(arg, a[index]));
 };
+
+export function useLocalStorageState(key, defaultValue) {
+  const [state, setState] = useState(defaultValue);
+  const storedValue = localStorage.getItem(key);
+  useEffect(() => {
+    setState(storedValue !== null ? JSON.parse(storedValue) : defaultValue);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+  return [state, setState];
+}
