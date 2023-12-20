@@ -1,4 +1,4 @@
-import { h } from './react.js';
+import { h } from '../react.js';
 
 export const Button = ({ type = 'normal', text, children, onClick }) => {
   text = text || children;
