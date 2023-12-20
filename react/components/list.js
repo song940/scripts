@@ -1,4 +1,4 @@
-import { h } from '../../components/react.js';
+import { h } from '../react.js';
 
 export const List = ({ items, children }) => {
   return h('ul', { className: 'list' },
