@@ -36,7 +36,7 @@ export async function* readLines(reader) {
   const decoder = new TextDecoder();
   let buffer = '', done = false, value;
   do {
-    ({ value, done }) = await reader.read();
+    ({ value, done } = await reader.read());
     buffer += decoder.decode(value, { stream: true });
     const lines = buffer.split('\n');
     buffer = lines.pop();
